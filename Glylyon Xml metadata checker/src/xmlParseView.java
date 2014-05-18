@@ -71,4 +71,7 @@ public class xmlParseView extends JFrame{
 	 scanButton.addActionListener(scanListener);
 	 
  }
+ 
+ 
+ 
 }

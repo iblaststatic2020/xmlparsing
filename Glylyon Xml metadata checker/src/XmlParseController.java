@@ -1,5 +1,8 @@
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+
+import javax.swing.JFileChooser;
 
 
 public class XmlParseController {
@@ -18,8 +21,16 @@ public class XmlParseController {
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			theModel.SearchButtonFunction();
+			//theModel.SearchButtonFunction();
+			JFileChooser fileChooser = new JFileChooser();
+			File selectedFile;
+			int status = fileChooser.showOpenDialog(null);
 			
+			if (status == JFileChooser.APPROVE_OPTION){
+				 selectedFile = fileChooser.getSelectedFile();
+				theModel.setSavedInputFile(selectedFile);
+			}
+			//theView.setFileName(selectedFile.getAbsolutePath()); 
 		}
 	}
 	

@@ -9,6 +9,13 @@ public File file;
 
 
 	
+
+
+	public void setSavedInputFile(File selectedFile) {
+		// TODO Auto-generated method stub
+		file = selectedFile;
+		
+	}
 	
 	
 	
