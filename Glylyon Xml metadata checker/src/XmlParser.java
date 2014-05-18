@@ -29,17 +29,15 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
-public class main {
+public class XmlParser {
 	
 	public static void main(String[] args){
 		
+		 xmlParseView theView = new xmlParseView();
+		 XmlParseModel theModel = new XmlParseModel();
+		 XmlParseController theController = new XmlParseController(theView, theModel);
 		 
-		/*JFileChooser chooser = new JFileChooser();
-		
-		chooser.showOpenDialog(null);
-		
-		file = chooser.getSelectedFile();
-		System.out.println(file.getAbsolutePath());*/
+		 theView.setVisible(true);
 		
 		
 		
@@ -52,35 +50,5 @@ public class main {
 	}
 
 }
-class searchButton_Action implements ActionListener{
 
-
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
-		
-		JFileChooser chooser = new JFileChooser();
-		
-		chooser.showOpenDialog(null);
-		
-		File file = chooser.getSelectedFile();
-		
-		
-		
-		
-	}
-	
-}
- class scanButton_Action implements ActionListener {
-
-	public void getData (File xmlfile) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
- }
+ 

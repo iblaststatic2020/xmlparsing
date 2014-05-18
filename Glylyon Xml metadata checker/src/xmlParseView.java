@@ -1,4 +1,5 @@
 import java.awt.Container;
+import java.awt.event.ActionListener;
 import java.io.File;
 
 import javax.swing.JButton;
@@ -10,14 +11,14 @@ import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
 
-public class xmlParseView {
-	private static File file;
-	private static JLabel fileLabel;
-	private static JButton searchButton, scanButton;
-	private static JFrame mainFrame;
-	private static JPanel mainPanel;
-	private static Container pane;
-	private static JTextField fileNameInput;
+public class xmlParseView extends JFrame{
+	private  File file;
+	private  JLabel fileLabel;
+	private  JButton searchButton, scanButton;
+	
+	private  JPanel mainPanel;
+	
+	private  JTextField fileNameInput;
 	
 	
  xmlParseView(){
@@ -28,35 +29,46 @@ public class xmlParseView {
 		 catch (IllegalAccessException e) {}
 		 catch (UnsupportedLookAndFeelException e) {}
 		
-		mainFrame = new JFrame("Meta-data Quality Analysis");
+		
 		fileLabel = new JLabel("File");
 		searchButton = new JButton("Search");
 		scanButton = new JButton("Scan");
 		fileLabel = new JLabel("File");
-		pane = new Container();
+		
 		mainPanel = new JPanel(null);
 		fileNameInput = new JTextField("", 20);
 		
-		mainFrame.setSize(300, 250);
-		pane = mainFrame.getContentPane();
-		pane.setLayout(null);
-		mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.setSize(300, 250);
 		
-		pane.add(mainPanel);
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		
 		mainPanel.add(fileLabel);
 		mainPanel.add(searchButton);
 		mainPanel.add(scanButton);
 		mainPanel.add(fileNameInput);
+		this.add(mainPanel);
 		
-		mainPanel.setBounds(0, 0, 300, 250);
 		fileLabel.setBounds(10,10, 30, 30);
 		fileNameInput.setBounds(40, 10, 150, 25);
 		searchButton.setBounds(195, 10, 90, 25);
 		scanButton.setBounds(10, 45, 275, 165);
 		
-		mainFrame.setVisible(true);
 		
-		searchButton.addActionListener( new searchButton_Action());
-		scanButton.addActionListener(new scanButton_Action());
+		
+		
 	}
+ 
+ public void setFilePath(String filePath){
+	 
+ }
+ void addFileSearchListener(ActionListener searchButtonListener){
+	 
+	 searchButton.addActionListener(searchButtonListener);
+ }
+ 
+ void addScanButtonListener(ActionListener scanListener){
+	 scanButton.addActionListener(scanListener);
+	 
+ }
 }
