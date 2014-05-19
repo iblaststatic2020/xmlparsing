@@ -7,7 +7,9 @@ public class XmlParseModel {
 public File file = null;
 
 
-
+public XmlParseModel(){
+	
+}
 	
 
 

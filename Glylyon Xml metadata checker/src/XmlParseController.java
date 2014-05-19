@@ -10,7 +10,7 @@ public class XmlParseController {
 	private XmlParseModel theModel;
 	public File file;
 	
-	public XmlParseController(xmlParseView theView, XmlParseModel themodel){
+	public XmlParseController(xmlParseView theView, XmlParseModel theModel){
 		this.theView = theView;
 		this.theModel = theModel;
 		
@@ -44,12 +44,9 @@ public class XmlParseController {
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			if(theModel == null){
-				System.out.println("object is empty");
-			}else{
-				
+			
 				theModel.setSavedInputFile(file);
-			}
+			
 			
 		}
 		
