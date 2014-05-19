@@ -8,6 +8,7 @@ import javax.swing.JFileChooser;
 public class XmlParseController {
 	private xmlParseView theView;
 	private XmlParseModel theModel;
+	public File file;
 	
 	public XmlParseController(xmlParseView theView, XmlParseModel themodel){
 		this.theView = theView;
@@ -23,14 +24,19 @@ public class XmlParseController {
 		public void actionPerformed(ActionEvent e) {
 			//theModel.SearchButtonFunction();
 			JFileChooser fileChooser = new JFileChooser();
-			File selectedFile;
-			int status = fileChooser.showOpenDialog(null);
 			
+			int status = fileChooser.showOpenDialog(null);
+			File selectedFile = fileChooser.getSelectedFile();
+			file = selectedFile;
 			if (status == JFileChooser.APPROVE_OPTION){
 				 selectedFile = fileChooser.getSelectedFile();
-				theModel.setSavedInputFile(selectedFile);
+				//theModel.setSavedInputFile(selectedFile);
 			}
-			//theView.setFileName(selectedFile.getAbsolutePath()); 
+			if (selectedFile.exists()){
+				System.out.println("good");
+				
+			}
+			theView.setFileName(selectedFile.getAbsolutePath()); 
 		}
 	}
 	
@@ -38,7 +44,12 @@ public class XmlParseController {
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			
+			if(theModel == null){
+				System.out.println("object is empty");
+			}else{
+				
+				theModel.setSavedInputFile(file);
+			}
 			
 		}
 		

@@ -15,9 +15,7 @@ public class xmlParseView extends JFrame{
 	private  File file;
 	private  JLabel fileLabel;
 	private  JButton searchButton, scanButton;
-	
 	private  JPanel mainPanel;
-	
 	private  JTextField fileNameInput;
 	
 	
@@ -59,8 +57,8 @@ public class xmlParseView extends JFrame{
 		
 	}
  
- public void setFilePath(String filePath){
-	 
+ public void setFileName(String filePath){
+	 fileNameInput.setText(filePath);
  }
  void addFileSearchListener(ActionListener searchButtonListener){
 	 
