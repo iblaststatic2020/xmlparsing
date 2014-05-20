@@ -9,7 +9,7 @@ public class XmlParseController {
 	private xmlParseView theView;
 	private XmlParseModel theModel;
 	public File file;
-	
+	int sectionCount;
 	public XmlParseController(xmlParseView theView, XmlParseModel theModel){
 		this.theView = theView;
 		this.theModel = theModel;
@@ -22,7 +22,7 @@ public class XmlParseController {
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			//theModel.SearchButtonFunction();
+			
 			JFileChooser fileChooser = new JFileChooser();
 			
 			int status = fileChooser.showOpenDialog(null);
@@ -30,14 +30,18 @@ public class XmlParseController {
 			file = selectedFile;
 			if (status == JFileChooser.APPROVE_OPTION){
 				 selectedFile = fileChooser.getSelectedFile();
-				//theModel.setSavedInputFile(selectedFile);
-			}
-			if (selectedFile.exists()){
-				System.out.println("good");
 				
+				 
+				 
 			}
+			
 			theView.setFileName(selectedFile.getAbsolutePath()); 
 		}
+		/*public void setSectionCount(int section){
+			System.out.println(section);
+			theModel.getSectionCount();
+			theView.setSectionCount(section);
+		}*/
 	}
 	
 	class scanListener implements ActionListener{
@@ -46,7 +50,8 @@ public class XmlParseController {
 		public void actionPerformed(ActionEvent e) {
 			
 				theModel.setSavedInputFile(file);
-			
+				sectionCount = theModel.getSectionCount();
+				 theView.setSectionCount(sectionCount);
 			
 		}
 		

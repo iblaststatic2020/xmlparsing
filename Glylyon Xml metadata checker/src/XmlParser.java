@@ -44,10 +44,6 @@ public class XmlParser {
 		
 	}
 	
-	
-	public static void parseXML(File xmlFile){
-		
-	}
 
 }
 
